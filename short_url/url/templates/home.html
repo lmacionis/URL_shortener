@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="d-flex flex-column" style="margin-top: 40vh;">
+    <h1 class="cover-heading">Shorten that URL!</h1>
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="btn btn-primary" name="submit" type="Submit" value="Submit">
+    </form>
+    {{error}}
+ </div>
+{% endblock content %}
+
