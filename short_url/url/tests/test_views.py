@@ -1,10 +1,8 @@
 from django.test import TestCase
-from django.urls import resolve
-from url.views import UrlView
 
 
 class HomePageTest(TestCase):
 
-    def test_root_url_resolves_to_UrlView(self):
-        found = resolve('/')
-        self.assertEqual(found.func.view_class, UrlView)
+    def test_uses_home_template(self):
+        response = self.client.get('/')
+        self.assertTemplateUsed(response, 'home.html')
